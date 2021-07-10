@@ -19,7 +19,7 @@ Windows 10 Home machines must meet the following requirements to install Docker 
 * The following hardware prerequisites are required to successfully run WSL 2 on Windows 10 Home:
   * 64 bit processor with [Second Level Address Translation \(SLAT\)](https://en.wikipedia.org/wiki/Second_Level_Address_Translation)
   * 4GB system RAM
-  * BIOS-level hardware virtualization support must be enabled in the BIOS settings. For more information, see [Virtualization](https://docs.docker.com/docker-for-windows/troubleshoot/#virtualization-must-be-enabled).
+  * BIOS-level hardware virtualization support must be enabled in the BIOS settings. For more information, see the Docker [Virtualization](https://docs.docker.com/docker-for-windows/troubleshoot/#virtualization).
 * Download and install the [Linux kernel update package](https://docs.microsoft.com/windows/wsl/wsl2-kernel).
 
 ## **Install Docker Desktop on Windows** 

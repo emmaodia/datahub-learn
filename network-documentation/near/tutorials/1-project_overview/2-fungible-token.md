@@ -82,7 +82,7 @@ On NEAR, the contract is responsible to pay for its long term persistent storage
 
 * API functions are specified using the lowest common denominator with the goal of being programming language neutral \(as much as possible\)
 * String type is used as the de facto platform neutral type - but we will be leveraging Rust's type system when building the smart contract implementation
-  * When interacting with the token contract, all amounts and balances MUST be unsigned integers. Internally all values are stored as a denomination based on the token's base unit used for decimal precision. For example, in NEAR the base unit is yoctoNEAR which translates to a decimal precision of 24 digits, i.e., 1 NEAR = 10^24 yoctoNEAR. Thus, when 1 NEAR is transferred, the transfer amount is specified as 1_000\_000\_000\_000\_000\_000\_000\_000 \(\`_\` added to make it easier to read\)
+  * When interacting with the token contract, all amounts and balances MUST be unsigned integers. Internally all values are stored as a denomination based on the token's base unit used for decimal precision. For example, in NEAR the base unit is yoctoNEAR which translates to a decimal precision of 24 digits, i.e., 1 NEAR = 10^24 yoctoNEAR. Thus, when 1 NEAR is transferred, the transfer amount is specified as 1\_000\_000\_000\_000\_000\_000\_000\_000 \(\`\_\` added to make it easier to read\)
 * All FT API functions are namespaced using a prefix naming convention \(`ft_`\). On NEAR, smart contracts are deployed as [WASM](https://webassembly.org/) binaries. At the WASM low level, all functions are effectively in the global namespace and function names must be unique \(function overloading is not permitted\). Using function prefix names is a trade-off. It enables global functions to be namespaced using a naming convention to avoid function name collisions. For example, a contract may want to implement both FT and NFT token transfer interfaces.
 * `#[payable]` implies that the function supports NEAR to be attached to the function call. I will explain why this is needed below
 * API functions are tagged as either _**change methods**_ or _**view methods**_. This is from the [NEAR JSON RPC API](https://docs.near.org/docs/roles/developer/contracts/api) perspective.
@@ -220,15 +220,10 @@ The method must return the number of tokens that are not used/accepted by this c
 **Arguments:**
 
 * `sender_id` - the NEAR account ID that initiated the transfer on the FT contract via `ft_transfer_call`
-* `amount` - the number of tokens that were transferred to this account as an unsigned integer in the token's base unit
-
-  ```text
-         in string representation
-  ```
-
+* `amount` - the number of tokens that were transferred to this account as an unsigned integer in the token's base unit, in string representation
 * `msg` - a string message that was passed with this transfer call.
 
-Returns the number of tokens that are used/accepted by this contract from the transferred amount.
+Returns the number of tokens that are not used/accepted by this contract from the transferred amount.
 
 **What purpose does msg serve?**
 

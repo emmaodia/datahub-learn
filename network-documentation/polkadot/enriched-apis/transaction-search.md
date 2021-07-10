@@ -104,6 +104,7 @@ Success response
 
 ```javascript
 {
+    "id": "string",
     "hash": "string",
     "block_hash": "string",
     "chain_id": "string",

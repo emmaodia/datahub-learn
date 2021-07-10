@@ -114,7 +114,7 @@ The following sections shall survive the expiration or termination of these Cont
 
 ## 8. Contacting Us
 
-You may get in touch with us by contacting our Support Team. We welcome your questions, concerns, and feedback about Figment Learn.
+You may get in touch with us by contacting our [**Support Team**](../other/support.md). We welcome your questions, concerns, and feedback about Figment Learn.
 
 Thank you for learning!  
 

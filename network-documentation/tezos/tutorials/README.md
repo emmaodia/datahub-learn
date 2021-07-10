@@ -12,6 +12,10 @@ Don't forget that you can try them out [**via Datahub**](https://datahub.figment
 
 #### [Join our community today](https://discord.gg/fszyM7K) if you want to interact with other builders and become a part of this growing ecosystem! 
 
+## Intro Pathway : Tezos Basics
+
+{% page-ref page="intro-pathway-tezos-basics/" %}
+
 ## Token contracts 
 
 {% page-ref page="token-contracts.md" %}

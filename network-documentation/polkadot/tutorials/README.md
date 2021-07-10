@@ -14,37 +14,31 @@ Don't forget that you can try them out [**via Datahub**](https://datahub.figment
 
 ## Create your first Substrate chain 
 
+{% page-ref page="create-your-first-substrate-chain.md" %}
 
+## Add a Pallet to your Runtime 
 
-## Add a Pallet to Your Runtime 
+{% page-ref page="add-a-pallet-to-your-runtime.md" %}
 
+## Write a Pallet in its own crate 
 
+{% page-ref page="write-a-pallet-in-its-own-crate.md" %}
+
+## Add the Contracts Pallets to a Runtime
+
+{% page-ref page="add-the-contracts-pallets-to-a-runtime.md" %}
 
 ## Build a PoE Decentralized Application 
 
+{% page-ref page="build-a-poe-decentralized-app.md" %}
+
+## Implement Social Recovery on Polkadot
+
+{% page-ref page="implement-social-recovery-on-polkadot.md" %}
+
+## Implement Multisig Accounts on Polkadot
+
+{% page-ref page="implement-multisig-accounts-on-polkadot.md" %}
 
 
-## Build a Private Network with Substrate 
-
-
-
-## Write a Pallet in its Own Crate
-
-
-
-## Forkless Upgrade a Chain
-
-
-
-## Build a Permissioned Network 
-
-
-
-## Add the Contracts Pallet to a Runtime 
-
-
-
-## Build an ERC-20 Token with ink! Smart Contracts
-
- 
 

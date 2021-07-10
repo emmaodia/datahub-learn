@@ -13,7 +13,7 @@ Don't forget that you can try them out [**via Datahub**](https://datahub.figment
 [**Join our community today** ](https://discord.gg/fszyM7K)**if you want to interact with other builders and become a part of this growing ecosystem!**
 
 {% hint style="info" %}
-If you prefer going through the tutorial with videos, check out this CELO Learn Pathway Playlist **\(**[https://www.youtube.com/playlist?list=PLkgTdjgP1aUCmcXrTxyRReS5OSLXlqGzB](https://www.youtube.com/playlist?list=PLkgTdjgP1aUCmcXrTxyRReS5OSLXlqGzB)**\) created by our community member** Chris Wilson
+If you prefer going through the tutorial with videos, check out this [CELO Learn Pathway Playlist](https://www.youtube.com/playlist?list=PLkgTdjgP1aUCmcXrTxyRReS5OSLXlqGzB) **created by our community member** Chris Wilson
 {% endhint %}
 
 ## 1. Connect to a Celo node with DataHub
@@ -48,7 +48,25 @@ If you prefer going through the tutorial with videos, check out this CELO Learn 
 
 {% page-ref page="hello-mobile-dapp.md" %}
 
+## Distributed File Manager \(DFM\) using Celo, IPFS and ReactJS
+
+{% page-ref page="distributed-file-manager-using-ipfs-celo-reactjs.md" %}
+
+## Celo-hardhat-deploy-and-nft-app.md
+
 ## Deploying an existing Smart Contract with Truffle
 
 {% page-ref page="./" %}
+
+## Create a Vault Smart contract
+
+## Testing Celo Smart Contracts with Truffle
+
+{% page-ref page="celo-testing-truffle.md" %}
+
+## 1. Building a Crowdfunding Smart Contract in Celo
+
+## 2. Deploying a Crowdfunding Smart Contract in Celo
+
+## 3. Interacting with the Crowdfunding Smart Contracts
 

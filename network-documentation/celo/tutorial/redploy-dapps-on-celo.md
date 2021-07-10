@@ -64,15 +64,13 @@ Now our celocli is connected to `Alfajores Testnet`. We need an account to work 
 
 Our terminal should look something like this. \(Everyone will have different values though!\)
 
+![](https://imgur.com/qMjrv5Z.png) As we don't want anybody to see our private key, it is an accepted practice among developers to use \`.env\` files to set up environment variables. During the time of uploading our project to any open source platform, we hide these files by adding them to \`.gitignore\` Create a .env file in the same directory and add the following line
 
- ![](https://imgur.com/qMjrv5Z.png) As we don't want anybody to see our private key, it is an accepted practice among developers to use \`.env\` files to set up environment variables. During the time of uploading our project to any open source platform, we hide these files by adding them to \`.gitignore\` Create a .env file in the same directory and add the following line 
- 
- ``` PRIVATE_KEY= <YOUR_PRIVATE_KEY>```
- 
- We will use this private key later on in this tutorial. Now that we have an account to work with, let's get some funds for signing transactions on the blockchain. Use Alfajores testnet faucet which can be found [here](https://celo.org/developers/faucet). To check if we have received funds, use
- 
- ``` celocli account:balance <YOUR_PUBLIC_ADDRESS> ```
+`PRIVATE_KEY= <YOUR_PRIVATE_KEY>`
 
+We will use this private key later on in this tutorial. Now that we have an account to work with, let's get some funds for signing transactions on the blockchain. Use Alfajores testnet faucet which can be found [here](https://celo.org/developers/faucet). To check if we have received funds, use
+
+`celocli account:balance <YOUR_PUBLIC_ADDRESS>`
 
 ![](https://imgur.com/RFWBgTr.png)
 
