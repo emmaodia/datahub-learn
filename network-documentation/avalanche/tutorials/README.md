@@ -48,6 +48,18 @@ Don't forget that you can try them out [**via Datahub**](https://datahub.figment
 
 {% page-ref page="transfer-avax-between-the-x-chain-and-c-chain.md" %}
 
+## Making an e-Voting dApp on Avalanche Fuji network using Trufflesuite
+
+{% page-ref page="making-evoting-dapp-on-avalanche-c-chain-using-truffle.md" %}
+
+## Making an advanced e-Voting dApp on Avalanche Fuji network using Trufflesuite
+
+{% page-ref page="making-advanced-e-voting-dapp-avalanche-fuji-using-trufle.md" %}
+
+## Making an advanced e-Voting dApp using Avalanche Fuji, Trufflesuite and ReactJS
+
+{% page-ref page="advanced-evoting-avalanche-reactjs.md" %}
+
 ## Creating a Fixed-Cap Asset
 
 {% page-ref page="creating-a-fixed-cap-asset.md" %}
@@ -64,9 +76,27 @@ Don't forget that you can try them out [**via Datahub**](https://datahub.figment
 
 {% page-ref page="create-nfts-with-the-avalanche-wallet.md" %}
 
+## Create a chat dApp on Avalanche using Solidity and ReactJS
+
+{% page-ref page="create-a-chat-application-using-solidity-and-react.md" %}
+
 ## Deploy Pangolin To Your Local Testnet And Create Token Pair
 
 {% page-ref page="deploy-pangolin-to-your-local-testnet-and-create-token-pair.md" %}
 
+## Transfer AVAX tokens from C-chain of your AVAX wallet to an ETH address
 
+{% page-ref page="avax-c-chain-to-eth-address-transfer-tutorial.md" %}
+
+## Transfer ERC-20 tokens from C-chain of your AVAX wallet to an ETH address
+
+{% page-ref page="erc20-token-transfer-to-eth-address.md" %}
+
+## Setting up a local Avalanche network using Avash
+
+{% page-ref page="local-avalanche-network-using-avash.md" %}
+
+## Using Hardhat with the Avalanche C-Chain
+
+{% page-ref page="using-hardhat-with-the-avalanche-c-chain.md" %}
 

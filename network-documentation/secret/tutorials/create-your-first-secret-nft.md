@@ -7,15 +7,13 @@ description: >-
 
 # Create your first secret NFT
 
-## About the Author
-
-This tutorial was created by [Florian Uhde](https://twitter.com/florianuhde), a software engineer and game developer with a passion for blockchain, creativity and systemic design.
-
 ## Introduction
 
 [Non-Fungible Tokens](https://en.wikipedia.org/wiki/Non-fungible_token) implement the idea of uniqueness in the blockchain world. With classical, fungible tokens the only important characteristic is how _many_ of them you own. You can think of those as currency, or to make a more exotic example, carrots. It is interesting to know how many kilograms of carrots you have, but nobody is likely to be really into you telling them which carrots you own precisely. For non-fungible tokens on the other hand, the number you are holding is not as important as _which_ token you hold. Given an example: If I tell you that I own three paintings, it's not that impressive. If I tell you on the other hand that I own the Mona Lisa, Guernica and The Persistence of Time you might be impressed and still want me to prove it.
 
 At a high level, an NFT has a number of important properties. First we are interested in which account holds a token, as this can decide who is allowed to interact with it. Secondly we need a way to store the metadata, which is the information that users will see and interact with that makes this NFT more than just a tokenID!
+
+{% embed url="https://youtu.be/jRuSOos9ig4" %}
 
 ### What is different between ERC721 and snip721
 
@@ -27,7 +25,7 @@ Secret Network is focused on privacy by default and this paradigm extends to its
 
 We will connect to an already deployed instance of the [snip721 reference implementation](https://github.com/baedrik/snip721-reference-impl): The _SecretFigment token_. We will build the functionality needed to interact with an NFT on secret. Namely the ability to mint new tokens, to set the Viewing key on tokens and to query the token private metadata.
 
-### Prerequisites
+## Prerequisites
 
 This tutorial assumes that you have completed the [Secret Learn Pathway](https://learn.figment.io/network-documentation/secret/secret-pathway) already, as we will be building upon that foundation of knowledge and skill. If you have not already done so, you would be wise to take the time to complete the Pathway. We will start with the same project folder as in section 5 of the Pathway.
 
@@ -450,7 +448,7 @@ response:  {
 }
 ```
 
-## Wrap up
+## Conclusion
 
 Congratulations! We have made it to the end of the first installment of this Secret NFT series. We have covered a lot of information, and I feel you can really be proud of what you have achieved. Just to recap:
 
@@ -459,6 +457,10 @@ Congratulations! We have made it to the end of the first installment of this Sec
 * You had hands-on experience interacting with the Secret network, learning about public, private and extended metadata.
 
 This is a solid foundation to play with and build upon!
+
+## About the Author
+
+This tutorial was created by [Florian Uhde](https://twitter.com/florianuhde), a software engineer and game developer with a passion for blockchain, creativity and systemic design. You can get in touch with the author on [Figment Forum](https://community.figment.io/u/floar) if you have any queries pertaining to the tutorial, secretNFTs, etc.
 
 ## What is next?
 
@@ -469,5 +471,5 @@ Of course, we are not yet at the end of our journey. In the coming tutorial, we 
 * Building a simple NFT viewer
 * Adding complex logic to your NFTs, making them much more than _just_ a store of secret data
 
-Lets keep on building!
+Let's keep on building!
 

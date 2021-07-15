@@ -260,6 +260,7 @@ uint32 constant minimumVotingPeriod = 1 weeks;
 ```
 The `minimumVotingPeriod` variable holds the number of days a proposal can be voted on in UNIX time. The [time unit](https://docs.soliditylang.org/en/v0.8.6/units-and-global-variables.html#time-units) weeks is a suffix provided by Solidity, 1 weeks here translates to the total seconds of [UNIX time](https://en.wikipedia.org/wiki/Unix_time) a week from now.
 The value of UNIX time can be displayed with the command date +%s.%N in Linux. macOS users need to run brew install coreutils to enable microseconds display and use gdate +%s.%N instead.
+
 &nbsp;
 ```
 uint256 numOfProposals;
@@ -324,7 +325,9 @@ These events are emitted for every new proposal, new contribution and new paymen
         _;
     }
 ```
+
 These modifiers will be used to control access to specific functions.
+
 ```
     function createProposal(
         string calldata description,
@@ -353,6 +356,7 @@ First a new identifier is set - the `proposalId`, which will be the existing num
 The remainder of the function assigns the necessary values to their counterparts in the CharityProposal object. payable() helps us by [converting the address literal](https://docs.soliditylang.org/en/v0.8.6/080-breaking-changes.html?highlight=payable#new-restrictions) into a payable address.
 
 Finally, the `NewCharityProposal` event is emitted.
+
 ```
     function vote(uint256 proposalId, bool supportProposal)
         external
@@ -391,7 +395,9 @@ The `vote()` function is an external function that allows voting on proposals wh
         }
     }
 ```
+
 `votable()` is called within the `vote()` function. It is used to verify if a proposal can be voted on.
+
 ```
     function payCharity(uint256 proposalId)
         external
@@ -414,7 +420,9 @@ The `vote()` function is an external function that allows voting on proposals wh
         return charityProposal.charityAddress.transfer(charityProposal.amount);
 }
 ```
+
 `payCharity` handles payment to the specified address after the voting period of the proposal has ended. It takes the proposalId as an argument and retreives that proposal from the mapping. We check whether the charity has already been paid or if the number of supporting votes is less than those against. If either of these conditions are true then the transaction will be reverted with an error message. If not, the paid property of the proposal is set true, the address of the stakeholder making the payment is set, and finally emit the PaymentTransfered event for logging purposes and transfer the payment to the charity address.
+
 ```
 receive() external payable {
         emit ContributionReceived(msg.sender, msg.value);
