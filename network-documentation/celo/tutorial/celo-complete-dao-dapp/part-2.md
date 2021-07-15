@@ -1,28 +1,26 @@
 ---
 title: Build a Decentralized Autonomous Organization (DAO) on Celo Part 2
-description: Learn how to build a fully functional DAO by writing the Smart Contract Code and then build a React Native App to communicate with the Smart Contract
+description: Learn how to create a functional DAO by examining the smart contract code in detail, then assembling a React Native app which interacts with the smart contract on Celo.
 ---
 # Build a Decentralized Autonomous Organization (DAO) on Celo - Part 2
 
-In this tutorial, we are going to build a fully functional DAO by writing the Smart Contract Code and then build a React Native App to communicate with the Smart Contract.
-This part 2 section focuses on Writing the Smart Contract Code
+In this tutorial, we are going to build a functional DAO by writing the smart contract code, then building a React Native app to interact with the smart contract on Celo.
 
-&nbsp;
-
-# Prerequisite
-
-[Solidity v8](https://docs.soliditylang.org/en/v0.8.0/installing-solidity.html)
 
 &nbsp;
 
 # Coding the DAO Smart Contract
-The smart contract is built using the `Solidity` language. 
-Initial Setup 
-The first thing to do here is to initialize a basic solidity project using truffle. Follow the process here to install truffle if you don’t have that previously installed. Next up is running `truffle init` in our preferred location to install the project. After running this command, truffle will set up a basic solidity project with the necessary files.
-Code
-Here is the full code for the smart contract, we’ll go over the different functions here to see what they do and why they are needed.
+The smart contract is written using the Solidity programming language. Solidity is used on Ethereum as well as other Ethereum Virtual Machine (EVM) compatible blockchains like Celo.
 
-```code
+# Initial Setup 
+
+The first task is to initialize a basic Solidity project using truffle. Running the command `truffle init` in our preferred location - most commonly an empty directory somewhere under the users home directory - will install the default files for the project. After running this command, truffle will set up a basic solidity project with the necessary files.
+
+# Code
+
+Here is an overview of the full code for the DAO contract, we’ll go over the different functions below to look at what they do and why they are needed.
+
+```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -239,7 +237,8 @@ Let’s go ahead and dissect the different functions that make up the smart cont
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 ```
-The first line here is simply the licence declaration that every solidity contract should start with: according to the Solidity [docs](https://docs.soliditylang.org/en/v0.8.4/layout-of-source-files.html). Line two is the pragma directive to enable certain compiler features or checks.
+The opening line of a Solidity file should contain the [SPDX licence](https://spdx.org/licenses/) identifier of the relevant open source license - commonly this will be MIT or The Unlicense.
+The next line will specify the Solidity version needed to compile the contract, using the `pragma` [compiler directive](https://docs.soliditylang.org/en/v0.5.8/layout-of-source-files.html#version-pragma). Be aware of the [semantic versioning](https://semver.org/).
 
 &nbsp;
 ```
@@ -253,19 +252,19 @@ We’ll be relying on [OpenZepellin's](https://openzeppelin.com/) ReentrancyGuar
 bytes32 public constant CONTRIBUTOR_ROLE = keccak256("CONTRIBUTOR");
 bytes32 public constant STAKEHOLDER_ROLE = keccak256("STAKEHOLDER");
 ```
-User’s of the DAO will be of two types - Contributors and Stakeholders - we need to declare two constants here.. We’ll eventually use them to register and differentiate users.
+Users of the DAO will be of two types - Contributors and Stakeholders. We need to declare two constants here, which are the [keccak256 hash](https://docs.soliditylang.org/en/v0.8.6/units-and-global-variables.html#mathematical-and-cryptographic-functions) of the words themselves. These constants will be used later to register and differentiate users.
 
 &nbsp;
 ```
 uint32 constant minimumVotingPeriod = 1 weeks;
 ```
-The `minimumVotingPeriod` variable holds the number of days a proposal can be voted on in UNIX time. The global variable `weeks` is a suffix provided by Solidity, `1 weeks` here translates to the total seconds of UNIX time a week from now.
-
+The `minimumVotingPeriod` variable holds the number of days a proposal can be voted on in UNIX time. The [time unit](https://docs.soliditylang.org/en/v0.8.6/units-and-global-variables.html#time-units) weeks is a suffix provided by Solidity, 1 weeks here translates to the total seconds of [UNIX time](https://en.wikipedia.org/wiki/Unix_time) a week from now.
+The value of UNIX time can be displayed with the command date +%s.%N in Linux. macOS users need to run brew install coreutils to enable microseconds display and use gdate +%s.%N instead.
 &nbsp;
 ```
 uint256 numOfProposals;
 ```
-This variable is incremented every time a new charity proposal is added. This is so we could iterate through the charity proposals in the mapping data type as Solidity doesn’t provide a way to step through mappings.
+`numOfProposals` is incremented every time a new charity proposal is added. This lets us iterate through the charity proposals in the mapping data type, as Solidity doesn’t provide a way to step through mappings.
 
 &nbsp;
 ```
@@ -283,7 +282,7 @@ This variable is incremented every time a new charity proposal is added. This is
         address paidBy;
     }
 ```
-This here is the Proposal type definition. This will hold the necessary data that makes up our proposal object.
+The `CharityProposal` struct definition holds the necessary data that makes up each proposal object.
 
 &nbsp;
 ```
@@ -296,10 +295,10 @@ This here is the Proposal type definition. This will hold the necessary data tha
 &nbsp;
 
 A group of four mapping type:
-`charityProposals` has uint256 and CharityProposal types as key and value respectively. This holds the list of Proposals in the DAO. It uses the id of the Proposal as key and the Proposal itself as the value.
-`stakeholderVotes` holds an `id` only list of the Proposals a particular stakeholder has voted on.
-`contributors` has the balance of a contributor as the value and the address of the contributor as the key to index into the mapping.
-`stakeholders` has the balance of a stakeholder as the value and the address of the stakeholder as the key to index into the mapping.
+`charityProposals` maps a uint256 value and a CharityProposal as key and value respectively. This holds the list of Proposals in the DAO. It uses the id of the Proposal as key and the Proposal itself as the value.
+`stakeholderVotes` maps the `address` of a Stakeholder to a list of the Proposals that address has voted on.
+`contributors` maps the Contributor addresses and the amounts they have sent into the DAO treasury.
+`stakeholders` maps the addresses and balances of Stakeholders.
 
 ```
     event ContributionReceived(address indexed fromAddress, uint256 amount);
@@ -311,7 +310,7 @@ A group of four mapping type:
     );
 ```
 
-Three events are emitted for logging purposes every time there’s a new Proposal, new contribution and new payment transfer
+These events are emitted for every new proposal, new contribution and new payment transfer. This is for logging purposes and to make filtering these events simpler. The indexed attribute causes the respective arguments to be treated as log topics instead of data.
 
 ```
     modifier onlyStakeholder(string memory message) {
@@ -325,7 +324,7 @@ Three events are emitted for logging purposes every time there’s a new Proposa
         _;
     }
 ```
-These modifiers will be used to control who has access to specific functions
+These modifiers will be used to control access to specific functions.
 ```
     function createProposal(
         string calldata description,
@@ -343,13 +342,17 @@ These modifiers will be used to control who has access to specific functions
         proposal.charityAddress = payable(charityAddress);
         proposal.amount = amount;
         proposal.livePeriod = block.timestamp + minimumVotingPeriod;
-
-
         emit NewCharityProposal(msg.sender, amount);
     }
 ```
-An external function that we can call in our dApp to add a new Proposal, it declares three parameters: `description`, `charityAddress` and `amount`.
-Notice the `onlyStakeholder` modifier in use here, this is needed to restrict this function only to stakeholders. On line 43, we assign the value of the `numOfProposal` variable we declared earlier to `proposalId` then incremented `numOfProposals`. On line 44, we declared a proposal variable of the CharityProposal type then assigns its reference to one of the buckets in the `charityProposals` mapping. Line 45-50 assigns the necessary values to their counterpart in the CharityProposal object. Lastly, the `NewCharityProposal` event is emitted on line 52.
+`createProposal` is a function that interacts with blockchain state, which we can call in our dApp to add a new Proposal, it accepts three parameters: `description`, `charityAddress` and `amount`.
+
+The function visibility is specified as external for economy of gas, which is also why the description will be contained in `calldata`. Memory allocation is expensive in terms of gas used, while reading from calldata is not. Also notice the `onlyStakeholder` modifier in use here, only accounts listed as Stakeholders can successfully call this function.
+
+First a new identifier is set - the `proposalId`, which will be the existing number of proposals incremented by one. Next, we declare a proposal variable of the CharityProposal type using the storage keyword to make sure the state variable is maintained, then assign its reference to one of the buckets in the `charityProposals` mapping.
+The remainder of the function assigns the necessary values to their counterparts in the CharityProposal object. payable() helps us by [converting the address literal](https://docs.soliditylang.org/en/v0.8.6/080-breaking-changes.html?highlight=payable#new-restrictions) into a payable address.
+
+Finally, the `NewCharityProposal` event is emitted.
 ```
     function vote(uint256 proposalId, bool supportProposal)
         external
@@ -388,41 +391,30 @@ The `vote()` function is an external function that allows voting on proposals wh
         }
     }
 ```
-`votable()` is called in the `vote()` function. It is used to verify if a proposal can be voted on.
+`votable()` is called within the `vote()` function. It is used to verify if a proposal can be voted on.
 ```
     function payCharity(uint256 proposalId)
         external
         onlyStakeholder("Only stakeholders are allowed to make payments")
     {
         CharityProposal storage charityProposal = charityProposals[proposalId];
-
-
         if (charityProposal.paid)
             revert("Payment has been made to this charity");
-
-
         if (charityProposal.votesFor <= charityProposal.votesAgainst)
             revert(
                 "The proposal does not have the required amount of votes to pass"
             );
-
-
         charityProposal.paid = true;
         charityProposal.paidBy = msg.sender;
-
-
         emit PaymentTransfered(
             msg.sender,
             charityProposal.charityAddress,
             charityProposal.amount
         );
-
-
         return charityProposal.charityAddress.transfer(charityProposal.amount);
 }
 ```
-This function makes payment to a Charity after the voting period of the proposal has ended. It takes the proposal id as an argument and gets the proposal from the mapping. Line 95-101 checks if the charity has already been paid or if the number of votes in support of the proposal is lesser than those against. If those two conditions are true then the transaction will be reverted with the right error message. If not, make the paid property of the proposal true, set the address of the stakeholder making the payment, emit the PaymentTransfered event for logging purposes then finally transfer the payment to the charity.
-
+`payCharity` handles payment to the specified address after the voting period of the proposal has ended. It takes the proposalId as an argument and retreives that proposal from the mapping. We check whether the charity has already been paid or if the number of supporting votes is less than those against. If either of these conditions are true then the transaction will be reverted with an error message. If not, the paid property of the proposal is set true, the address of the stakeholder making the payment is set, and finally emit the PaymentTransfered event for logging purposes and transfer the payment to the charity address.
 ```
 receive() external payable {
         emit ContributionReceived(msg.sender, msg.value);

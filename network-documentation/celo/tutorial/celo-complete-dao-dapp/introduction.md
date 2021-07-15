@@ -1,11 +1,11 @@
 ---
 title: Build a Decentralized Autonomous Organization (DAO) on Celo.
-description: Learn how to build a fully functional DAO by writing the Smart Contract Code and then build a React Native App to communicate with the Smart Contract
+description: Learn how to create a functional DAO by examining the smart contract code in detail, then assembling a React Native app which interacts with the smart contract on Celo.
 ---
 
 # Build a Decentralized Autonomous Organization (DAO) on Celo.
 
-In this tutorial, we are going to build a fully functional DAO by writing the Smart Contract Code and then build a React Native App to communicate with the Smart Contract.
+In this tutorial, we will build a functioning DAO (Distributed Autonomous Organization) by first writing the Solidity smart contract code which will be deployed on the Celo network and then building a React Native App to interact with the smart contract.
 
 &nbsp;
 
@@ -23,32 +23,33 @@ There’s no CEO who can authorize spending based on their own whims and no chan
 
 Read more [here](https://ethereum.org/en/dao/). 
 
-**In this tutorial, you will learn how to build a complete Charity DAO. The Charity DAO is built using React Native dApp. The Smart Contract code is deployed on the Alfajores testnet. The contract allows the members to contribute to the DAO. Members can initiate/suggest charity proposals and stakeholders will have to vote to approve/reject the proposal within a stipulated period of time. After the elapse of the stipulated time, the DAO contract will disburse the funds pooled into the Charity DAO**.
+**In this tutorial, you will learn how to build a functioning Charity DAO. The smart contract code is deployed on the Alfajores testnet. The contract allows its members to contribute to the DAO. Members can initiate charity proposals which Stakeholders will have to vote on within a specified period of time. After that time has elapsed, the DAO contract will disburse the funds pooled into the Charity DAO.**.
 
 &nbsp;
 
 # Prerequisite
 
-This article assumes that you have basic knowledge of Solidity, JavaScript (TypeScript), and how to start a React Native App using expo. It is also assumed that you have read the expo documentation and have basic knowledge of the Celo Wallet.
+This article assumes that you have basic knowledge of Solidity, JavaScript (TypeScript), and also how to start a React Native App using [expo](https://expo.io/). It is also assumed that you have read the expo documentation and have basic knowledge of the Celo Wallet.
 
-- [Celo Wallet](https://docs.celo.org/getting-started/alfajores-testnet/using-the-mobile-wallet)
-- [React Native using expo](https://docs.expo.io/)
-- [DappKit](https://docs.celo.org/developer-guide/dappkit/setup)
-- [Redux](https://redux.js.org/introduction/getting-started)
+- [Expo](https://docs.expo.io/) is a framework and a platform for universal React applications.
+- Learn about the Celo [mobile wallet](https://docs.celo.org/getting-started/alfajores-testnet/using-the-mobile-wallet).
+- React Native using [expo](https://docs.expo.io/).
+- The Celo DappKit [documentation](https://docs.celo.org/developer-guide/dappkit/setup) is also going to be useful.
+- Learn about [Redux](https://redux.js.org/introduction/getting-started) as well.
 
 &nbsp;
 
 # Requirements
-For this Tutorial, we will need the following installed:
+For this tutorial, following software needs to be installed:
 - React Native
 - NodeJS v12 and above
-- Truffle
-- The Alphajores Wallet Kindly fund the wallet using the Faucet
+- [Truffle](https://www.trufflesuite.com/)
+- The Alphajores Wallet, which will need to be funded using the [faucet](https://celo.org/developers/faucet)
 
-To aid your learning, this project is broken up into 3 parts: 
-- Coding the DAO Smart Contract
-- Building the React Native dApp
-- Redux
+We will cover the project in three parts:: 
+- Writing the DAO Smart Contract in Solidity
+- Building the React Native App
+- Connecting the App with the Smart Contract using Redux
 
 &nbsp;
 
@@ -61,7 +62,7 @@ We will begin by outlining a visual representation of the dApp, its features, an
 &nbsp;
 
 ## Features
-The App features include: 
+The functionality of the app includes: 
 - Users connect their Celo Wallet to join the Charity DAO
 * Users contribute Celo to become Contributors of the DAO
 - Contributors that have made 200 or more total contributions are automatically made Stakeholders.

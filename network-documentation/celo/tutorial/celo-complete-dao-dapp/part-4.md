@@ -1,6 +1,6 @@
 ---
 title: Build a Decentralized Autonomous Organization (DAO) on Celo - Part 4
-description: Learn how to build a fully functional DAO by writing the Smart Contract Code and then build a React Native App to communicate with the Smart Contract
+description: Learn how to create a functional DAO by examining the smart contract code in detail, then assembling a React Native app which interacts with the smart contract on Celo.
 ---
 
 # Build a Decentralized Autonomous Organization (DAO) on Celo - Part 4

@@ -87,8 +87,7 @@
     * [How to mint your own fungible Celo Token](network-documentation/celo/tutorial/celo-erc20-token-on-remix.md)
     * [How to use Ubeswap DEX on Celo](network-documentation/celo/tutorial/celo-ubeswap-tutorial.md)
     * [How to use Moola’s money market](network-documentation/celo/tutorial/moola-market.md)
-    * [How to Build a Decentralized Autonomous Organization (DAO) on Celo.
-](network-documentation/celo/tutorial/celo-complete-dao-dapp/introduction.md)
+    * [How to Build a Decentralized Autonomous Organization (DAO) on Celo](network-documentation/celo/tutorial/celo-complete-dao-dapp/introduction.md)
 
   * [💼 CELO Wallet](network-documentation/celo/celo-wallet.md)
 * [🌌 Cosmos](network-documentation/cosmos/README.md)
